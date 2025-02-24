@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import shortid from "shortid";
 import TextInput from "./TextInput";
-import { or } from "ajv/dist/compile/codegen";
 
 function InputShortener() {
   const [originalUrl, setOriginalUrl] = useState("");
@@ -18,31 +17,41 @@ function InputShortener() {
     setButton(id);
   };
 
-  const handleShortenUrl = () => {
-    if (originalUrl === "") {
-      setErrorInput("please enter your url");
+  
+  const handleInputChange = (event) => {
+    setOriginalUrl(event.target.value);
+  };
+
+  const isValidUrl = (originalUrl) => {
+    const regex = new RegExp(
+      "^(?:http(s)?:\\/\\/)?[\\w.-]+(?:\\.[\\w\\.-]+)+[\\w\\-\\._~:/?#[\\]@!$&'()*+,;=.]+$"
+    );
+    return regex.test(originalUrl);
+  };
+  
+
+  const handleShortenUrl = (event) => {
+
+    if (!isValidUrl(originalUrl) || originalUrl === "") {
+      setErrorInput("please enter valid url");
     } else {
       setLoading(true);
+
       const shortId = shortid.generate();
       const shortenedUrl = `http://short.url/${shortId}`;
       setShortUrl(shortenedUrl);
       setOriginalUrl("");
       setLoading(false);
-      let shortLinks = shortUrl;
-      let shortLinkArr = [...shortContainer];
-      shortLinkArr.push(shortLinks);
-      setShortContainer(shortLinkArr);
-      let mainLink = originalLink;
-      let mainLinkArr = [originalUrl];
-      mainLinkArr.push(mainLink);
-      setOriginalLink(mainLinkArr);
+      
+      setShortContainer([...shortContainer, shortUrl])
+    
+      setOriginalLink([...originalLink, originalUrl])
+
+      
     setErrorInput("");
     }
   };
 
-  const handleInputChange = (event) => {
-    setOriginalUrl(event.target.value);
-  };
 
   const handleCopy = async (item) => {
     try {
@@ -66,7 +75,7 @@ function InputShortener() {
   }
 
   if (error) {
-    return <p className="">Something went wrong</p>;
+    return <p className="">{setError("Something went wrong")}</p>;
   }
 
   // if (originalUrl==="") {
@@ -105,15 +114,9 @@ function InputShortener() {
                   copy={copied}
                   handlebtnCopy={() => handlebtnCopy(index)}
                   btnCopy={button}
-                  mainLink={originalLink}
+                  mainLink={originalLink[index]}
                 />
-                {/* <p>{url}</p>
-                        <CopyToClipboard 
-                            text={shortContainer}
-                            onCopy={()=>setCopied(true)}
-                        >
-                            <button className={copied ? "copied": "not-copied"}>copy to keyboard</button>
-                        </CopyToClipboard> */}
+                
               </li>
             ))}
           </ul>

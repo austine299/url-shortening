@@ -71,13 +71,13 @@
   }
   .input-container{
     position:relative;
-    top: -3rem; 
+    top: -12rem; 
     display: flex;
     justify-content: space-between;
     background-color: hsl(255, 11%, 22%);
     background-image: url("../public/images/bg-shorten-desktop.svg");
-    height: 10rem;
-    padding: 2rem;
+    height: 15rem;
+    padding: 4.5rem;
     gap: 2rem;
     border-radius: 10px;
   }
@@ -218,7 +218,7 @@
   .input-bg{
     background-color: hsl(0, 0%, 75%);
     padding: 5rem 5rem 10rem 5rem;
-    margin-top: 6rem;
+    margin-top: 13rem;
   }
   
   .boost-links{
@@ -346,10 +346,14 @@
   }
   
   .detail-heading{
-    font-size: 5.5rem;
+    font-size: 3.5rem;
     font-weight:  bold;
     color: hsl(257, 27%, 26%);
     margin-bottom: -1rem;
+  }
+
+  .boost-links h1{
+    font-size:25px;
   }
 
   .boost-links button{
@@ -438,13 +442,14 @@
     text-align: center;
     color: hsl(257, 27%, 26%);
     font-weight: bold;
+    font-size:3rem;
   }
   
   .advance-p{
     width: 100%;
     text-align: center;
     color: #aaa1a1;
-    font-size:25px;
+    font-size:17px;
     font-weight: bold;
   }
   
@@ -462,7 +467,7 @@
   
 .activiity-details{
   color:#aaa1a1;
-  font-size:20px;
+  font-size:17px;
   font-weight:bold;
   text-align:center;
   margin-top:2rem;
@@ -505,6 +510,7 @@
   .activity-header{
     margin-top:-1rem;
     font-weight:bold;
+    font-size:25px;
   }
   
   .icon-container{

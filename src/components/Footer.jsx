@@ -34,7 +34,7 @@ function Footer() {
             <ul className="socia-body">
                 <li className="fa fa-facebook"></li>
                 <li className="fa fa-twitter"></li>
-                <li className="fa fa-pitres"></li>
+                <li className="fa fa-pinterest"></li>
                 <li className="fa fa-instagram"></li>
             </ul>
         

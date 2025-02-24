@@ -7,8 +7,7 @@ function TextInput(props) {
     <div className="shorted-container">
       <li className="shported-list" style={{  }} >
         <p className="mainlink"id={props.id}>{props.mainLink}</p>
-        <p className="shortlink">{props.url}</p>
-        <p text={props.text}></p>
+        <p className="shortlink" id={props.id}>{props.url}</p>
         <CopyToClipboard text={props.text} onCopy={props.onCopy}>
           <button onClick={props.handlebtnCopy} id={props.id} className={props.id===props.btnCopy ? "copied" : "not-copied"}>
             {props.id===props.btnCopy ?"copied":"copy"}
