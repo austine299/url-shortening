@@ -75,19 +75,19 @@ function InputShortener() {
   return (
     <div className="input-body">
       <div>
-      <div className="input-container">
-        <input
-          className="input"
-          type="text"
-          value={originalUrl}
-          onChange={handleInputChange}
-          placeholder="Shorten a link here"
-        />
-        <button className="btn-short" onClick={handleShortenUrl}>
-          Shorten it!
-        </button>
-      </div>
-      <p style={{color:"red", marginTop:"-2rem", textAlign:"center"}}>{errorInput}</p>
+        <div className="input-container">
+          <input
+            className="input"
+            type="text"
+            value={originalUrl}
+            onChange={handleInputChange}
+            placeholder="Shorten a link here"
+          />
+          <button className="btn-short" onClick={handleShortenUrl}>
+            Shorten it!
+          </button>
+        </div>
+        <p style={{color:"red", marginTop:"-2rem", textAlign:"center"}}>{errorInput}</p>
       </div>
 
       {shortUrl && (
